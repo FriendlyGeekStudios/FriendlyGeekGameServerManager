@@ -11,6 +11,7 @@ builder.Services.AddMudServices();
 //Add App Services
 builder.Services.AddSingleton<NexusAPIManager>();
 builder.Services.AddSingleton<SteamGamesService>();
+builder.Services.AddSingleton<Settings>();
 
 var app = builder.Build();
 
