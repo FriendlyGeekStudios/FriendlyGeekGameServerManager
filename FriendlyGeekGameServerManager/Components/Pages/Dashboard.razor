@@ -1,7 +1,20 @@
 ﻿@page "/"
 
+@inject ILogger<Dashboard> Logger
+
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+<MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Color="Color.Primary" OnClick="@CreateServerButtonPressed">Create Server</MudButton>
+
+@code {
+
+    void CreateServerButtonPressed()
+    {
+        Logger?.LogInformation("Attempting to create a new server");
+    }
+
+}
