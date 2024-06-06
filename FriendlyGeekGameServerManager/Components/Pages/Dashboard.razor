@@ -2,7 +2,7 @@
 @using FriendlyGeekGameServerManager.Interfaces
 
 @inject ILogger<Dashboard> Logger
-@inject IPluginManager PluginManager
+@inject IDialogService DialogService;
 
 <PageTitle>Home</PageTitle>
 
@@ -18,11 +18,14 @@ Welcome to your new app.
     void CreateServerButtonPressed()
     {
         Logger?.LogInformation("Attempting to create a new server");
+        // _pluginManager.GetAvailablePluginInformation();
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        DialogService.Show<SelectGame>("Create Server", options);
     }
 
     private void ReloadPlugins(MouseEventArgs obj)
     {
-        PluginManager.LoadPlugins();
+        _pluginManager.LoadPlugins();
     }
 
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendlyGeekGameServerManag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NecesseServer", "Plugins\NecesseServer\NecesseServer.csproj", "{BECEA68B-7B34-44D4-B0DF-B37F8F050C84}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamePlugin", "GamePlugin\GamePlugin.csproj", "{3D1CDDBA-A4AD-4E6D-8974-E3CA5B38B93B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BECEA68B-7B34-44D4-B0DF-B37F8F050C84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BECEA68B-7B34-44D4-B0DF-B37F8F050C84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BECEA68B-7B34-44D4-B0DF-B37F8F050C84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1CDDBA-A4AD-4E6D-8974-E3CA5B38B93B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1CDDBA-A4AD-4E6D-8974-E3CA5B38B93B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1CDDBA-A4AD-4E6D-8974-E3CA5B38B93B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1CDDBA-A4AD-4E6D-8974-E3CA5B38B93B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

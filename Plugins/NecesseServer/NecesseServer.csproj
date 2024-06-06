@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\FriendlyGeekGameServerManager\FriendlyGeekGameServerManager.csproj">
+        <ProjectReference Include="..\..\GamePlugin\GamePlugin.csproj">
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
         </ProjectReference>

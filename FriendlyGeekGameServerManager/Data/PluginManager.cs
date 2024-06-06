@@ -1,8 +1,8 @@
 ﻿using System.Net;
 using System.Reflection;
 using FriendlyGeekGameServerManager.Contexts;
-using FriendlyGeekGameServerManager.GamePlugins;
 using FriendlyGeekGameServerManager.Interfaces;
+using GamePlugin;
 
 namespace FriendlyGeekGameServerManager.Data;
 
@@ -25,6 +25,11 @@ public class PluginManager : IPluginManager
         LoadPlugins();
     }
 
+    public IEnumerable<GameInformation> GetAvailablePluginInformation()
+    {
+        return _plugins.Select(plugin => plugin.GetGameInformation()).ToList();
+    }
+
     public void LoadPlugins()
     {
         // TODO: Unload currently loaded plugins or come up with a way to prevent loading the same plugin twice
@@ -33,12 +38,12 @@ public class PluginManager : IPluginManager
             _logger.LogWarning("Plugin Directory is invalid. Cannot load plugins");
             return;
         }
-        
+
         _logger.LogInformation($"Attempting to load plugins from directory: {_pluginDirectory}");
 
         // Will search Recursively through the plugins folder
         string[] pluginLibraries = Directory.GetFiles(_pluginDirectory, "*.dll", SearchOption.AllDirectories);
-        
+
         _logger.LogInformation($"Found {pluginLibraries.Length} Potential Shared Libraries");
 
         _plugins = pluginLibraries.SelectMany(pluginPath =>
@@ -58,7 +63,7 @@ public class PluginManager : IPluginManager
     {
         string root = Path.GetFullPath(pluginPath);
         var pluginLocation = root.Replace('\\', Path.DirectorySeparatorChar);
-        
+
         PluginLoadContext loadContext = new PluginLoadContext(pluginLocation);
         return loadContext.LoadFromAssemblyName(new AssemblyName(Path.GetFileNameWithoutExtension(pluginLocation)));
     }

@@ -1,14 +1,16 @@
 ﻿using FriendlyGeekGameServerManager.Enums;
 
-namespace FriendlyGeekGameServerManager.GamePlugins;
+namespace GamePlugin;
 
 public interface IGamePluginBase
 {
     string GameName { get; }
     string? SteamAppId { get; }
-
+    string IconURL { get; }
 
     GameServerActionResult LoadPlugin();
+
+    public GameInformation GetGameInformation();
 
     GameServerActionResult CreateServer();
     GameServerActionResult StartServer();

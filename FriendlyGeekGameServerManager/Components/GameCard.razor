@@ -1,0 +1,22 @@
+﻿@using GamePlugin
+
+<MudCard>
+    <MudCardContent>
+        <MudText>@GameInformation?.Name</MudText>
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton OnClick="CreateServer">Select</MudButton>
+    </MudCardActions>
+</MudCard>
+
+@code {
+    [Parameter] public GameInformation? GameInformation { get; set; }
+
+    private void CreateServer()
+    {
+        // _Logger.LogInformation();
+        // TODO: Needs a reference to the Assembly Plugin that we want to create a server for
+        Console.WriteLine($"Creating a {GameInformation?.Name} Server");
+    }
+
+}
