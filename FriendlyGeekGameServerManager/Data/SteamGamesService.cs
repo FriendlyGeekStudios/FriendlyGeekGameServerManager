@@ -1,4 +1,4 @@
-﻿using FriendlyGeekGameServerManager.Interfaces;
+using FriendlyGeekGameServerManager.Interfaces;
 
 namespace FriendlyGeekGameServerManager.Data
 {
