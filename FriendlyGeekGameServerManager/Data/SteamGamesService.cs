@@ -1,7 +1,8 @@
-﻿namespace FriendlyGeekGameServerManager.Data
-{
-    public class SteamGamesService
-    {
+﻿using FriendlyGeekGameServerManager.Interfaces;
 
+namespace FriendlyGeekGameServerManager.Data
+{
+    public class SteamGamesService : ISteamGamesService
+    {
     }
 }

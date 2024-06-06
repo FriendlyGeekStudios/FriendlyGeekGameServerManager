@@ -1,6 +1,8 @@
 ﻿@page "/"
+@using FriendlyGeekGameServerManager.Interfaces
 
 @inject ILogger<Dashboard> Logger
+@inject IPluginManager PluginManager
 
 <PageTitle>Home</PageTitle>
 
@@ -9,12 +11,18 @@
 Welcome to your new app.
 
 <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Color="Color.Primary" OnClick="@CreateServerButtonPressed">Create Server</MudButton>
+<MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Cyclone" Color="Color.Secondary" OnClick="@ReloadPlugins">Reload Plugins</MudButton>
 
 @code {
 
     void CreateServerButtonPressed()
     {
         Logger?.LogInformation("Attempting to create a new server");
+    }
+
+    private void ReloadPlugins(MouseEventArgs obj)
+    {
+        PluginManager.LoadPlugins();
     }
 
 }
