@@ -1,7 +1,90 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<MudPaper Elevation="25">
+    <MudToolBar>
+        <MudIconButton Icon="@Icons.Material.Outlined.Add" Title="Add New Server" OnClick="AddNew" />
+        <MudIconButton Icon="@Icons.Material.Outlined.Remove" Color="Color.Inherit" Title="Remove Server" OnClick="Remove" />
+        <MudSpacer />
+        <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
+        <MudIconButton Icon="@Icons.Material.Outlined.PushPin" />
+        <MudIconButton Icon="@Icons.Material.Outlined.PeopleAlt" />
+        <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit" />
+    </MudToolBar>
+</MudPaper>
 
-<h1>Hello, world!</h1>
+@if(serverList != null)
+{
+    <MudDataGrid Items="@serverList" Filterable="false" SortMode="@SortMode.None" Groupable="false">
+        <Columns>
+            <TemplateColumn CellClass="d-flex justify-start">
+                <CellTemplate>
+                    <MudStack Row>
+                        <MudButton Size="@Size.Small" Variant="@Variant.Filled" Color="@Color.Primary">Hire</MudButton>
+                        <MudIconButton Icon="@Icons.Material.Outlined.PlayArrow" Color="Color.Inherit" Title="Start Server" OnClick="Start" />
+                        <MudIconButton Icon="@Icons.Material.Outlined.Stop" Color="Color.Inherit" Title="Stop Server" OnClick="Stop" />
+                        <MudIconButton Icon="@Icons.Material.Outlined.DoNotDisturb" Color="Color.Inherit" Title="Kill Server Process" OnClick="Kill" />
+                        <MudIconButton Icon="@Icons.Material.Outlined.Backup" Title="Backup Server" OnClick="Backup" />
+                        <MudIconButton Icon="@Icons.Material.Outlined.Update" Color="Color.Inherit" Title="Update Server" OnClick="Update" />
+                    </MudStack>
+                </CellTemplate>
+            </TemplateColumn>
+            <PropertyColumn Property="x => x.Id" Title="Id" />
+            <PropertyColumn Property="x => x.Name" Title="Server Name" />
+            <PropertyColumn Property="x => x.Status" Title="Server Status" />
+            <PropertyColumn Property="x => x.GamePort" Format="Game Port" />
+            <PropertyColumn Property="x => x.QueryPort" Title="Query Port" />
+        </Columns>
+    </MudDataGrid>
+}
+else
+{
+    <MudPaper>
+        <MudProgressCircular Color="Color.Primary" Indeterminate="true"/>
+    </MudPaper>
+}
 
-Welcome to your new app.
+@code{
+    List<Server>? serverList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        serverList = await ServerController.GetActiveServers();
+    }
+
+    private void Start()
+    {
+
+    }
+
+    private void AddNew()
+    {
+
+    }
+
+    private void Remove()
+    {
+
+    }
+
+    private void Backup()
+    {
+        
+    }
+
+    private void Stop()
+    {
+        
+    }
+
+    private void Kill()
+    {
+
+    }
+
+    private void Update()
+    {
+        
+    }
+}
